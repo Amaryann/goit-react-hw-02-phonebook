@@ -1,0 +1,13 @@
+.contact{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.contact input{
+    width: 100px;
+}
+.contactList{
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
