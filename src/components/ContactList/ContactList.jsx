@@ -1,4 +1,5 @@
 import css from './ContactList.module.css';
+import PropTypes from 'prop-types';
 export const ContactList = ({ contacts, filter, state, setState }) => {
     if (!contacts || contacts.length === 0) {
       return <p>No contacts available</p>;
@@ -25,4 +26,24 @@ export const ContactList = ({ contacts, filter, state, setState }) => {
         ))}
       </ul>
     );
+  };
+  ContactList.propTypes = {
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        tel: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    filter: PropTypes.string.isRequired,
+    state: PropTypes.shape({
+      contacts: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          tel: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+    setState: PropTypes.func.isRequired,
   };

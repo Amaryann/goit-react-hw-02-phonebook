@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import PropTypes from 'prop-types';
 import css from "./Filter.module.css"
 
 export const Filter = ({ state, setState }) => {
@@ -22,4 +23,10 @@ export const Filter = ({ state, setState }) => {
       />
     </div>
   );
+};
+Filter.propTypes = {
+  state: PropTypes.shape({
+    filter: PropTypes.string.isRequired,
+  }).isRequired,
+  setState: PropTypes.func.isRequired,
 };
